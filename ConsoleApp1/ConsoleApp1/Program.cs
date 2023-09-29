@@ -273,7 +273,9 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
 
-            for (int i = 1; i <= 27; i++)
+            Console.WriteLine("Enter a number for loop: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= number; i++)
             {
                 int temp = 65;
                 for (int j = 1; j <=2*i-1; j++)
