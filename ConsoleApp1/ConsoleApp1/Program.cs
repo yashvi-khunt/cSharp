@@ -273,7 +273,7 @@ namespace ConsoleApp1
                 Console.WriteLine();
             }
 
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 27; i++)
             {
                 int temp = 65;
                 for (int j = 1; j <=2*i-1; j++)
@@ -282,15 +282,22 @@ namespace ConsoleApp1
                     if(j<i)
                     {
                         temp++;
+                        if(temp > 90)
+                        {
+                            temp = 65;
+                        }
                     }
                     else
                     {
                         temp--;
+                        if(temp < 65)
+                        {
+                            temp = 90;
+                        }
                     }
+
                     
                 }
-               
-                
                 Console.WriteLine();
             }
 
