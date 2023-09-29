@@ -257,15 +257,12 @@ namespace ConsoleApp1
             for(int i = 1; i <= 5; i++) 
             {
                 int temp = 65;
-                char c = 'a';
                 for (int j = 1; j <= i; j++)
                 {
-                    //Console.Write(c);
-                    //c++;
                     Console.Write(Convert.ToChar(temp));
                     temp++;
                 }
-                temp = temp - 2;
+                temp -= 2;
                 //temp = 63;
                 for (int j = 1; j < i; j++)
                 {
@@ -275,6 +272,28 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine();
             }
+
+            for (int i = 1; i <= 5; i++)
+            {
+                int temp = 65;
+                for (int j = 1; j <=2*i-1; j++)
+                {
+                    Console.Write(Convert.ToChar(temp));
+                    if(j<i)
+                    {
+                        temp++;
+                    }
+                    else
+                    {
+                        temp--;
+                    }
+                    
+                }
+               
+                
+                Console.WriteLine();
+            }
+
         }
     }
 }
