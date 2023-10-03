@@ -1,0 +1,7 @@
+D:\dotNet\basicsModule2\basicsModule2\bin\Debug\basicsModule2.exe.config
+D:\dotNet\basicsModule2\basicsModule2\bin\Debug\basicsModule2.exe
+D:\dotNet\basicsModule2\basicsModule2\bin\Debug\basicsModule2.pdb
+D:\dotNet\basicsModule2\basicsModule2\obj\Debug\basicsModule2.csproj.AssemblyReference.cache
+D:\dotNet\basicsModule2\basicsModule2\obj\Debug\basicsModule2.csproj.CoreCompileInputs.cache
+D:\dotNet\basicsModule2\basicsModule2\obj\Debug\basicsModule2.exe
+D:\dotNet\basicsModule2\basicsModule2\obj\Debug\basicsModule2.pdb

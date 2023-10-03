@@ -1,13 +1,127 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Program
+     class Program
     {
+        static void Show(params object[] val)
+        {
+            for(int i = 0; i < val.Length; i++)
+            {
+                Console.WriteLine(val[i]);
+            }
+        }
+
+        static void printArray(int[] arr)
+        {
+            for(int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
+        static void ArrayMethod()
+        {
+
+            //single dimentional
+            int[] EvenNums = new int[3] {2,4,6};
+            Console.WriteLine("Single DImentional Array");
+            Console.WriteLine(EvenNums[0]);
+            Console.WriteLine(EvenNums[1]);
+            Console.WriteLine(EvenNums[2]);
+
+            //passin array to function
+            Console.WriteLine("Passing array to a function.");
+            printArray(EvenNums);
+
+
+            //multiDimentional Array
+            Console.WriteLine("Multidimentional array");
+            Console.WriteLine("2D");
+            int[,] twoD = new int[3,3];
+            int[,] twoDimentional = new int[,] { { 1, 2, 3 }, { 2, 3, 4 }, { 3, 4, 5 } };
+            twoD[0, 1] = 10;
+            twoD[1, 2] = 20;
+            twoD[2, 0] = 30;   
+
+            for(int i = 0; i < 3; i++)
+            {
+                for (int j = 0;j < 3; j++)
+                {
+                    Console.Write(twoD[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            //jagged array
+            Console.WriteLine("jagged Array");
+            int[][] j_arr = new int[3][]{
+                                new int[] { 11, 21, 56, 78 },
+                                new int[] { 2, 5, 6, 7, 98, 5 },
+                                new int[] { 2, 5 }
+                            };
+            for (int i = 0; i < j_arr.Length; i++)
+            {
+                for (int j = 0; j < j_arr[i].Length; j++)
+                {
+                    System.Console.Write(j_arr[i][j] + " ");
+                }
+                System.Console.WriteLine();
+            }
+            int[] arr = { 3, 8, 5, 6, 3, 5, 7, 2 };
+            Console.WriteLine("Param : ");
+            Show("Ramakrishnan Ayyer", "Ramesh", 101, 20.50, "Peter", 'A');
+
+            Console.WriteLine("length of first array: " + arr.Length);
+            Array.Sort(arr);
+            Console.WriteLine("Sorted array: ");
+            printArray(arr);
+
+            Console.WriteLine("Index position of 4 is" + Array.IndexOf(arr, 4));
+            int[] arr2 = new int[arr.Length];
+            Array.Copy(arr, arr2, arr.Length);
+            Console.WriteLine("SEcond Array elements : ");
+            printArray(arr2);
+
+            Array.Reverse(arr2);
+            Console.WriteLine("reversed array :");
+            printArray(arr2 );
+
+
+        }
+
+        static void Exercise1() 
+        {
+            Console.WriteLine("Enter a number for loop: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= number; i++)
+            {
+                int temp = 65;
+                for (int j = 1; j <= 2 * i - 1; j++)
+                {
+                    Console.Write(Convert.ToChar(temp));
+                    if (j < i)
+                    {
+                        temp++;
+                        if (temp > 90)
+                        {
+                            temp = 65;
+                        }
+                    }
+                    else
+                    {
+                        temp--;
+                        if (temp < 65)
+                        {
+                            temp = 90;
+                        }
+                    }
+
+
+                }
+                Console.WriteLine();
+            }
+        }
+
         static void Main(string[] args)
         {
             //Console.WriteLine("Introduction:");
@@ -251,56 +365,40 @@ namespace ConsoleApp1
             //        Console.WriteLine(i + " " + j);
 
             //    }
-            //}
 
-            
-            for(int i = 1; i <= 5; i++) 
+
+            //Exercise1();
+
+
+
+            //verbatim literal
+            Console.Write("Verbatim literal: ");
+            string name = @"Hello \ World";
+            Console.WriteLine($"{name}");
+
+            //reference types - nullable
+            string str = null;
+            //Console.WriteLine(str);
+
+            //value types - not nullable
+            //int n = null   //gives Cannot convert null to 'int' because it is a non - nullable value type   
+
+            //to make value types nullable, insert ? as suffix to datatype
+            //int? n = null;
+
+            //int availableNum = n ?? 0;          //null coalescing operator
+
+            //ArrayMethod();
+
+            //commanLine Arguements
+            Console.WriteLine("Arguements length: " + args.Length);
+            Console.WriteLine("Supplied arguments are: ");
+            foreach (Object obj in args)
             {
-                int temp = 65;
-                for (int j = 1; j <= i; j++)
-                {
-                    Console.Write(Convert.ToChar(temp));
-                    temp++;
-                }
-                temp -= 2;
-                //temp = 63;
-                for (int j = 1; j < i; j++)
-                {
-                    
-                    Console.Write(Convert.ToChar(temp));
-                    temp--;
-                }
-                Console.WriteLine();
+                Console.WriteLine(obj);
             }
-
-            Console.WriteLine("Enter a number for loop: ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i <= number; i++)
             {
-                int temp = 65;
-                for (int j = 1; j <=2*i-1; j++)
-                {
-                    Console.Write(Convert.ToChar(temp));
-                    if(j<i)
-                    {
-                        temp++;
-                        if(temp > 90)
-                        {
-                            temp = 65;
-                        }
-                    }
-                    else
-                    {
-                        temp--;
-                        if(temp < 65)
-                        {
-                            temp = 90;
-                        }
-                    }
-
-                    
-                }
-                Console.WriteLine();
+                
             }
 
         }
