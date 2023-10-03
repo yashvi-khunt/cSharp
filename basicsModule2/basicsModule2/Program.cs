@@ -1,10 +1,84 @@
 ﻿using System;
-using System.Security.Cryptography;
-using System.Security.Policy;
-
+using Second;
 namespace basicsModule2
 {
 
+    public class Program
+    {
+       public static void Main(string[] args)
+        {
+            /*
+            //abstraction
+            //AbstractExample example = new AbstractExample();   //ERROR: cannot create instance of abstract type or interface AbstractExample  
+
+            AbstractExample s = new Square();
+            s.setDetails(4, "BLue");
+            s.getDetails();
+            s.draw();
+            s = new Circle();
+            s.setDetails(0, "Red");
+            s.getDetails();
+            s.draw();
+            */
+
+            /*
+            //Interface
+            InterfaceExample e = new InterfaceExample();
+            e.sampleMethod();
+            e.sampleMethod2();
+
+            MultipleInterface mi = new MultipleInterface();
+            mi.printName();
+            mi.printAge();
+
+            //IStudent s = new IStudent();  //ERROR: Cannot create an instance of the abstract type or interface 'IStudent'
+
+            IStudent s = new MultipleInterface();
+            s.printName();
+            //s.printAge();  //s is of type IStudent which has only PrintName Method so S.printAge gives error
+            */
+            /*
+            //NameSpace
+            First.Hello h1 = new First.Hello();
+            h1.sayHello();
+
+            Hello h2 = new Hello();
+            h2.sayHello();
+
+            */
+
+            //properties
+            Properties p = new Properties();
+            p.Name = "Test";
+            //p._name = "Test2";  //if _name is not private - it will set to Test2
+            p.printName();
+            Grand g1 = new Grand();
+            g1.draw();
+            Console.ReadLine();
+        }
+    }
+    public class Base
+    {
+        public virtual void draw()
+        {
+            Console.WriteLine("HEllo Base");
+        }
+    }
+    public class Derived : Base
+    {
+        public  override void draw()
+        {
+            Console.WriteLine("HEllo derived");
+            base.draw();
+        }
+    }
+    public class Grand : Derived
+    {
+        public override void draw()
+        {
+            base.draw();
+        }
+    }
     //creating an object student
     /*
     public class Student
