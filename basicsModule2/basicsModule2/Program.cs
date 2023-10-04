@@ -47,14 +47,30 @@ namespace basicsModule2
 
             */
 
+            /*
             //properties
             Properties p = new Properties();
             p.Name = "Test";
             //p._name = "Test2";  //if _name is not private - it will set to Test2
             p.printName();
+            */
+
+            //generics
+
+            /*
+            TestGenerics<int> list1 = new TestGenerics<int>();
+            list1.Add(1);
+
+            TestGenerics<string> list2 = new TestGenerics<string>();
+            list2.Add("a");
+            */
+
+            /*
             Grand g1 = new Grand();
             g1.draw();
             Console.ReadLine();
+            */
+
         }
     }
     public class Base
