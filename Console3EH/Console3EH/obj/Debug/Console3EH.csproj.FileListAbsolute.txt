@@ -1,0 +1,7 @@
+D:\dotNet\Console3EH\Console3EH\bin\Debug\Console3EH.exe.config
+D:\dotNet\Console3EH\Console3EH\bin\Debug\Console3EH.exe
+D:\dotNet\Console3EH\Console3EH\bin\Debug\Console3EH.pdb
+D:\dotNet\Console3EH\Console3EH\obj\Debug\Console3EH.csproj.AssemblyReference.cache
+D:\dotNet\Console3EH\Console3EH\obj\Debug\Console3EH.csproj.CoreCompileInputs.cache
+D:\dotNet\Console3EH\Console3EH\obj\Debug\Console3EH.exe
+D:\dotNet\Console3EH\Console3EH\obj\Debug\Console3EH.pdb
