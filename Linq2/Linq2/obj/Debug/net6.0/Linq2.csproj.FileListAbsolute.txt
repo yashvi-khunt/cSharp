@@ -1,0 +1,4 @@
+D:\dotNet\Linq2\Linq2\obj\Debug\net6.0\Linq2.GeneratedMSBuildEditorConfig.editorconfig
+D:\dotNet\Linq2\Linq2\obj\Debug\net6.0\Linq2.AssemblyInfoInputs.cache
+D:\dotNet\Linq2\Linq2\obj\Debug\net6.0\Linq2.AssemblyInfo.cs
+D:\dotNet\Linq2\Linq2\obj\Debug\net6.0\Linq2.csproj.CoreCompileInputs.cache
