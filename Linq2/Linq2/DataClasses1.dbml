@@ -1,27 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TASK" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.BOOKS" Member="BOOKs">
-    <Type Name="BOOK">
-      <Column Name="Book_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Book_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Author_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Publisher_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.DEPARTMENTS" Member="DEPARTMENTs">
+    <Type Name="DEPARTMENT">
+      <Column Name="Department_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Department_Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Manager_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Location_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DEPARTMENT_EMPLOYEE" Member="EMPLOYEEs" ThisKey="Department_ID" OtherKey="Department_ID" Type="EMPLOYEE" />
     </Type>
   </Table>
-  <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
-    <Type Name="CUSTOMER">
-      <Column Name="Customer_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Customer_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Street_Address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Phone_Number" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="Credit_Card_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.EMPLOYEES" Member="EMPLOYEEs">
+    <Type Name="EMPLOYEE">
+      <Column Name="Employee_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="First_Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Last_Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone_Number" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Hire_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Job_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Salary" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Commision_PCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Manager_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Department_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DEPARTMENT_EMPLOYEE" Member="DEPARTMENT" ThisKey="Department_ID" OtherKey="Department_ID" Type="DEPARTMENT" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="JOB_EMPLOYEE" Member="JOB" ThisKey="Job_ID" OtherKey="Job_ID" Type="JOB" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.temp" Member="temps">
-    <Type Name="temp">
-      <Column Name="fname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.JOBS" Member="JOBs">
+    <Type Name="JOB">
+      <Column Name="Job_ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Job_Title" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Min_Salary" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Max_Salary" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="JOB_EMPLOYEE" Member="EMPLOYEEs" ThisKey="Job_ID" OtherKey="Job_ID" Type="EMPLOYEE" />
     </Type>
   </Table>
 </Database>

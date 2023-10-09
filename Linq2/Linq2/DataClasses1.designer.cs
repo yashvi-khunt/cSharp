@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Linq2
+namespace LinqSQL
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -30,12 +30,15 @@ namespace Linq2
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertBOOK(BOOK instance);
-    partial void UpdateBOOK(BOOK instance);
-    partial void DeleteBOOK(BOOK instance);
-    partial void InsertCUSTOMER(CUSTOMER instance);
-    partial void UpdateCUSTOMER(CUSTOMER instance);
-    partial void DeleteCUSTOMER(CUSTOMER instance);
+    partial void InsertDEPARTMENT(DEPARTMENT instance);
+    partial void UpdateDEPARTMENT(DEPARTMENT instance);
+    partial void DeleteDEPARTMENT(DEPARTMENT instance);
+    partial void InsertEMPLOYEE(EMPLOYEE instance);
+    partial void UpdateEMPLOYEE(EMPLOYEE instance);
+    partial void DeleteEMPLOYEE(EMPLOYEE instance);
+    partial void InsertJOB(JOB instance);
+    partial void UpdateJOB(JOB instance);
+    partial void DeleteJOB(JOB instance);
     #endregion
 		
 		public DataClasses1DataContext(string connection) : 
@@ -62,165 +65,157 @@ namespace Linq2
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<BOOK> BOOKs
+		public System.Data.Linq.Table<DEPARTMENT> Departments
 		{
 			get
 			{
-				return this.GetTable<BOOK>();
+				return this.GetTable<DEPARTMENT>();
 			}
 		}
 		
-		public System.Data.Linq.Table<CUSTOMER> CUSTOMERs
+		public System.Data.Linq.Table<EMPLOYEE> EMPLOYEEs
 		{
 			get
 			{
-				return this.GetTable<CUSTOMER>();
+				return this.GetTable<EMPLOYEE>();
 			}
 		}
 		
-		public System.Data.Linq.Table<temp> temps
+		public System.Data.Linq.Table<JOB> JOBs
 		{
 			get
 			{
-				return this.GetTable<temp>();
+				return this.GetTable<JOB>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BOOKS")]
-	public partial class BOOK : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DEPARTMENTS")]
+	public partial class DEPARTMENT : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Book_ID;
+		private int _Department_ID;
 		
-		private string _Book_Name;
+		private string _Department_Name;
 		
-		private int _Author_ID;
+		private int _Manager_ID;
 		
-		private int _Price;
+		private int _Location_ID;
 		
-		private int _Publisher_ID;
+		private EntitySet<EMPLOYEE> _EMPLOYEEs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnBook_IDChanging(int value);
-    partial void OnBook_IDChanged();
-    partial void OnBook_NameChanging(string value);
-    partial void OnBook_NameChanged();
-    partial void OnAuthor_IDChanging(int value);
-    partial void OnAuthor_IDChanged();
-    partial void OnPriceChanging(int value);
-    partial void OnPriceChanged();
-    partial void OnPublisher_IDChanging(int value);
-    partial void OnPublisher_IDChanged();
+    partial void OnDepartment_IDChanging(int value);
+    partial void OnDepartment_IDChanged();
+    partial void OnDepartment_NameChanging(string value);
+    partial void OnDepartment_NameChanged();
+    partial void OnManager_IDChanging(int value);
+    partial void OnManager_IDChanged();
+    partial void OnLocation_IDChanging(int value);
+    partial void OnLocation_IDChanged();
     #endregion
 		
-		public BOOK()
+		public DEPARTMENT()
 		{
+			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Book_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Book_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Department_ID
 		{
 			get
 			{
-				return this._Book_ID;
+				return this._Department_ID;
 			}
 			set
 			{
-				if ((this._Book_ID != value))
+				if ((this._Department_ID != value))
 				{
-					this.OnBook_IDChanging(value);
+					this.OnDepartment_IDChanging(value);
 					this.SendPropertyChanging();
-					this._Book_ID = value;
-					this.SendPropertyChanged("Book_ID");
-					this.OnBook_IDChanged();
+					this._Department_ID = value;
+					this.SendPropertyChanged("Department_ID");
+					this.OnDepartment_IDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Book_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Book_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department_Name", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Department_Name
 		{
 			get
 			{
-				return this._Book_Name;
+				return this._Department_Name;
 			}
 			set
 			{
-				if ((this._Book_Name != value))
+				if ((this._Department_Name != value))
 				{
-					this.OnBook_NameChanging(value);
+					this.OnDepartment_NameChanging(value);
 					this.SendPropertyChanging();
-					this._Book_Name = value;
-					this.SendPropertyChanged("Book_Name");
-					this.OnBook_NameChanged();
+					this._Department_Name = value;
+					this.SendPropertyChanged("Department_Name");
+					this.OnDepartment_NameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author_ID", DbType="Int NOT NULL")]
-		public int Author_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Manager_ID", DbType="Int NOT NULL")]
+		public int Manager_ID
 		{
 			get
 			{
-				return this._Author_ID;
+				return this._Manager_ID;
 			}
 			set
 			{
-				if ((this._Author_ID != value))
+				if ((this._Manager_ID != value))
 				{
-					this.OnAuthor_IDChanging(value);
+					this.OnManager_IDChanging(value);
 					this.SendPropertyChanging();
-					this._Author_ID = value;
-					this.SendPropertyChanged("Author_ID");
-					this.OnAuthor_IDChanged();
+					this._Manager_ID = value;
+					this.SendPropertyChanged("Manager_ID");
+					this.OnManager_IDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int NOT NULL")]
-		public int Price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location_ID", DbType="Int NOT NULL")]
+		public int Location_ID
 		{
 			get
 			{
-				return this._Price;
+				return this._Location_ID;
 			}
 			set
 			{
-				if ((this._Price != value))
+				if ((this._Location_ID != value))
 				{
-					this.OnPriceChanging(value);
+					this.OnLocation_IDChanging(value);
 					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
+					this._Location_ID = value;
+					this.SendPropertyChanged("Location_ID");
+					this.OnLocation_IDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Publisher_ID", DbType="Int NOT NULL")]
-		public int Publisher_ID
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTMENT_EMPLOYEE", Storage="_EMPLOYEEs", ThisKey="Department_ID", OtherKey="Department_ID")]
+		public EntitySet<EMPLOYEE> EMPLOYEEs
 		{
 			get
 			{
-				return this._Publisher_ID;
+				return this._EMPLOYEEs;
 			}
 			set
 			{
-				if ((this._Publisher_ID != value))
-				{
-					this.OnPublisher_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Publisher_ID = value;
-					this.SendPropertyChanged("Publisher_ID");
-					this.OnPublisher_IDChanged();
-				}
+				this._EMPLOYEEs.Assign(value);
 			}
 		}
 		
@@ -243,130 +238,168 @@ namespace Linq2
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_EMPLOYEEs(EMPLOYEE entity)
+		{
+			this.SendPropertyChanging();
+			entity.DEPARTMENT = this;
+		}
+		
+		private void detach_EMPLOYEEs(EMPLOYEE entity)
+		{
+			this.SendPropertyChanging();
+			entity.DEPARTMENT = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CUSTOMER")]
-	public partial class CUSTOMER : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEES")]
+	public partial class EMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Customer_ID;
+		private int _Employee_ID;
 		
-		private string _Customer_Name;
+		private string _First_Name;
 		
-		private string _Street_Address;
+		private string _Last_Name;
 		
-		private string _City;
+		private string _Email;
 		
 		private string _Phone_Number;
 		
-		private int _Credit_Card_Number;
+		private System.Nullable<System.DateTime> _Hire_Date;
+		
+		private string _Job_ID;
+		
+		private int _Salary;
+		
+		private System.Nullable<int> _Commision_PCT;
+		
+		private System.Nullable<int> _Manager_ID;
+		
+		private System.Nullable<int> _Department_ID;
+		
+		private EntityRef<DEPARTMENT> _DEPARTMENT;
+		
+		private EntityRef<JOB> _JOB;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCustomer_IDChanging(int value);
-    partial void OnCustomer_IDChanged();
-    partial void OnCustomer_NameChanging(string value);
-    partial void OnCustomer_NameChanged();
-    partial void OnStreet_AddressChanging(string value);
-    partial void OnStreet_AddressChanged();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
+    partial void OnEmployee_IDChanging(int value);
+    partial void OnEmployee_IDChanged();
+    partial void OnFirst_NameChanging(string value);
+    partial void OnFirst_NameChanged();
+    partial void OnLast_NameChanging(string value);
+    partial void OnLast_NameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
     partial void OnPhone_NumberChanging(string value);
     partial void OnPhone_NumberChanged();
-    partial void OnCredit_Card_NumberChanging(int value);
-    partial void OnCredit_Card_NumberChanged();
+    partial void OnHire_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnHire_DateChanged();
+    partial void OnJob_IDChanging(string value);
+    partial void OnJob_IDChanged();
+    partial void OnSalaryChanging(int value);
+    partial void OnSalaryChanged();
+    partial void OnCommision_PCTChanging(System.Nullable<int> value);
+    partial void OnCommision_PCTChanged();
+    partial void OnManager_IDChanging(System.Nullable<int> value);
+    partial void OnManager_IDChanged();
+    partial void OnDepartment_IDChanging(System.Nullable<int> value);
+    partial void OnDepartment_IDChanged();
     #endregion
 		
-		public CUSTOMER()
+		public EMPLOYEE()
 		{
+			this._DEPARTMENT = default(EntityRef<DEPARTMENT>);
+			this._JOB = default(EntityRef<JOB>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Customer_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Employee_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Employee_ID
 		{
 			get
 			{
-				return this._Customer_ID;
+				return this._Employee_ID;
 			}
 			set
 			{
-				if ((this._Customer_ID != value))
+				if ((this._Employee_ID != value))
 				{
-					this.OnCustomer_IDChanging(value);
+					this.OnEmployee_IDChanging(value);
 					this.SendPropertyChanging();
-					this._Customer_ID = value;
-					this.SendPropertyChanged("Customer_ID");
-					this.OnCustomer_IDChanged();
+					this._Employee_ID = value;
+					this.SendPropertyChanged("Employee_ID");
+					this.OnEmployee_IDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_First_Name", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string First_Name
 		{
 			get
 			{
-				return this._Customer_Name;
+				return this._First_Name;
 			}
 			set
 			{
-				if ((this._Customer_Name != value))
+				if ((this._First_Name != value))
 				{
-					this.OnCustomer_NameChanging(value);
+					this.OnFirst_NameChanging(value);
 					this.SendPropertyChanging();
-					this._Customer_Name = value;
-					this.SendPropertyChanged("Customer_Name");
-					this.OnCustomer_NameChanged();
+					this._First_Name = value;
+					this.SendPropertyChanged("First_Name");
+					this.OnFirst_NameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street_Address", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Street_Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Last_Name", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Last_Name
 		{
 			get
 			{
-				return this._Street_Address;
+				return this._Last_Name;
 			}
 			set
 			{
-				if ((this._Street_Address != value))
+				if ((this._Last_Name != value))
 				{
-					this.OnStreet_AddressChanging(value);
+					this.OnLast_NameChanging(value);
 					this.SendPropertyChanging();
-					this._Street_Address = value;
-					this.SendPropertyChanged("Street_Address");
-					this.OnStreet_AddressChanged();
+					this._Last_Name = value;
+					this.SendPropertyChanged("Last_Name");
+					this.OnLast_NameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string City
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Email
 		{
 			get
 			{
-				return this._City;
+				return this._Email;
 			}
 			set
 			{
-				if ((this._City != value))
+				if ((this._Email != value))
 				{
-					this.OnCityChanging(value);
+					this.OnEmailChanging(value);
 					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone_Number", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone_Number", DbType="VarChar(15)")]
 		public string Phone_Number
 		{
 			get
@@ -386,22 +419,198 @@ namespace Linq2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Credit_Card_Number", DbType="Int NOT NULL")]
-		public int Credit_Card_Number
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hire_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Hire_Date
 		{
 			get
 			{
-				return this._Credit_Card_Number;
+				return this._Hire_Date;
 			}
 			set
 			{
-				if ((this._Credit_Card_Number != value))
+				if ((this._Hire_Date != value))
 				{
-					this.OnCredit_Card_NumberChanging(value);
+					this.OnHire_DateChanging(value);
 					this.SendPropertyChanging();
-					this._Credit_Card_Number = value;
-					this.SendPropertyChanged("Credit_Card_Number");
-					this.OnCredit_Card_NumberChanged();
+					this._Hire_Date = value;
+					this.SendPropertyChanged("Hire_Date");
+					this.OnHire_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Job_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Job_ID
+		{
+			get
+			{
+				return this._Job_ID;
+			}
+			set
+			{
+				if ((this._Job_ID != value))
+				{
+					if (this._JOB.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnJob_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Job_ID = value;
+					this.SendPropertyChanged("Job_ID");
+					this.OnJob_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salary", DbType="Int NOT NULL")]
+		public int Salary
+		{
+			get
+			{
+				return this._Salary;
+			}
+			set
+			{
+				if ((this._Salary != value))
+				{
+					this.OnSalaryChanging(value);
+					this.SendPropertyChanging();
+					this._Salary = value;
+					this.SendPropertyChanged("Salary");
+					this.OnSalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commision_PCT", DbType="Int")]
+		public System.Nullable<int> Commision_PCT
+		{
+			get
+			{
+				return this._Commision_PCT;
+			}
+			set
+			{
+				if ((this._Commision_PCT != value))
+				{
+					this.OnCommision_PCTChanging(value);
+					this.SendPropertyChanging();
+					this._Commision_PCT = value;
+					this.SendPropertyChanged("Commision_PCT");
+					this.OnCommision_PCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Manager_ID", DbType="Int")]
+		public System.Nullable<int> Manager_ID
+		{
+			get
+			{
+				return this._Manager_ID;
+			}
+			set
+			{
+				if ((this._Manager_ID != value))
+				{
+					this.OnManager_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Manager_ID = value;
+					this.SendPropertyChanged("Manager_ID");
+					this.OnManager_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department_ID", DbType="Int")]
+		public System.Nullable<int> Department_ID
+		{
+			get
+			{
+				return this._Department_ID;
+			}
+			set
+			{
+				if ((this._Department_ID != value))
+				{
+					if (this._DEPARTMENT.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDepartment_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Department_ID = value;
+					this.SendPropertyChanged("Department_ID");
+					this.OnDepartment_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEPARTMENT_EMPLOYEE", Storage="_DEPARTMENT", ThisKey="Department_ID", OtherKey="Department_ID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public DEPARTMENT DEPARTMENT
+		{
+			get
+			{
+				return this._DEPARTMENT.Entity;
+			}
+			set
+			{
+				DEPARTMENT previousValue = this._DEPARTMENT.Entity;
+				if (((previousValue != value) 
+							|| (this._DEPARTMENT.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DEPARTMENT.Entity = null;
+						previousValue.EMPLOYEEs.Remove(this);
+					}
+					this._DEPARTMENT.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEEs.Add(this);
+						this._Department_ID = value.Department_ID;
+					}
+					else
+					{
+						this._Department_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DEPARTMENT");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="JOB_EMPLOYEE", Storage="_JOB", ThisKey="Job_ID", OtherKey="Job_ID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public JOB JOB
+		{
+			get
+			{
+				return this._JOB.Entity;
+			}
+			set
+			{
+				JOB previousValue = this._JOB.Entity;
+				if (((previousValue != value) 
+							|| (this._JOB.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._JOB.Entity = null;
+						previousValue.EMPLOYEEs.Remove(this);
+					}
+					this._JOB.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEEs.Add(this);
+						this._Job_ID = value.Job_ID;
+					}
+					else
+					{
+						this._Job_ID = default(string);
+					}
+					this.SendPropertyChanged("JOB");
 				}
 			}
 		}
@@ -427,48 +636,165 @@ namespace Linq2
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.temp")]
-	public partial class temp
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.JOBS")]
+	public partial class JOB : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _fname;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _age;
+		private string _Job_ID;
 		
-		public temp()
+		private string _Job_Title;
+		
+		private int _Min_Salary;
+		
+		private int _Max_Salary;
+		
+		private EntitySet<EMPLOYEE> _EMPLOYEEs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnJob_IDChanging(string value);
+    partial void OnJob_IDChanged();
+    partial void OnJob_TitleChanging(string value);
+    partial void OnJob_TitleChanged();
+    partial void OnMin_SalaryChanging(int value);
+    partial void OnMin_SalaryChanged();
+    partial void OnMax_SalaryChanging(int value);
+    partial void OnMax_SalaryChanged();
+    #endregion
+		
+		public JOB()
 		{
+			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string fname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Job_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Job_ID
 		{
 			get
 			{
-				return this._fname;
+				return this._Job_ID;
 			}
 			set
 			{
-				if ((this._fname != value))
+				if ((this._Job_ID != value))
 				{
-					this._fname = value;
+					this.OnJob_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Job_ID = value;
+					this.SendPropertyChanged("Job_ID");
+					this.OnJob_IDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_age", DbType="Int NOT NULL")]
-		public int age
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Job_Title", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Job_Title
 		{
 			get
 			{
-				return this._age;
+				return this._Job_Title;
 			}
 			set
 			{
-				if ((this._age != value))
+				if ((this._Job_Title != value))
 				{
-					this._age = value;
+					this.OnJob_TitleChanging(value);
+					this.SendPropertyChanging();
+					this._Job_Title = value;
+					this.SendPropertyChanged("Job_Title");
+					this.OnJob_TitleChanged();
 				}
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Min_Salary", DbType="Int NOT NULL")]
+		public int Min_Salary
+		{
+			get
+			{
+				return this._Min_Salary;
+			}
+			set
+			{
+				if ((this._Min_Salary != value))
+				{
+					this.OnMin_SalaryChanging(value);
+					this.SendPropertyChanging();
+					this._Min_Salary = value;
+					this.SendPropertyChanged("Min_Salary");
+					this.OnMin_SalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Max_Salary", DbType="Int NOT NULL")]
+		public int Max_Salary
+		{
+			get
+			{
+				return this._Max_Salary;
+			}
+			set
+			{
+				if ((this._Max_Salary != value))
+				{
+					this.OnMax_SalaryChanging(value);
+					this.SendPropertyChanging();
+					this._Max_Salary = value;
+					this.SendPropertyChanged("Max_Salary");
+					this.OnMax_SalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="JOB_EMPLOYEE", Storage="_EMPLOYEEs", ThisKey="Job_ID", OtherKey="Job_ID")]
+		public EntitySet<EMPLOYEE> EMPLOYEEs
+		{
+			get
+			{
+				return this._EMPLOYEEs;
+			}
+			set
+			{
+				this._EMPLOYEEs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_EMPLOYEEs(EMPLOYEE entity)
+		{
+			this.SendPropertyChanging();
+			entity.JOB = this;
+		}
+		
+		private void detach_EMPLOYEEs(EMPLOYEE entity)
+		{
+			this.SendPropertyChanging();
+			entity.JOB = null;
 		}
 	}
 }
