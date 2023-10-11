@@ -1,0 +1,5 @@
+﻿
+<asp:Label  runat="server" BackColor="aqua" BorderColor="black" BorderStyle="solid" BorderWidth="2px" ForeColor="beige"></asp:Label>
+
+
+<asp:Label SkinID="DiffBack"  runat="server" BackColor="beige" BorderColor="black" BorderStyle="dashed" BorderWidth="2px" ForeColor="aqua"></asp:Label>

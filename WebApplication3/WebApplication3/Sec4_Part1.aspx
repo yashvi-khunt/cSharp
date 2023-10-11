@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Part1.aspx.cs" Inherits="WebApplication3.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sec4_Part1.aspx.cs" Inherits="WebApplication3.Default" %>
 
 <!DOCTYPE html>
 

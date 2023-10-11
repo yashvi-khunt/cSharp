@@ -67,44 +67,63 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Part1.aspx" />
-    <Content Include="Part2.aspx" />
-    <Content Include="Part3.aspx" />
-    <Content Include="Part3ListBox.aspx" />
+    <Content Include="Sec4_Part1.aspx" />
+    <Content Include="Sec4_Part2.aspx" />
+    <Content Include="Sec4_Part3.aspx" />
+    <Content Include="Sec4_Part3ListBox.aspx" />
+    <Content Include="Sec5.aspx" />
+    <Content Include="Sec6.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Part1.aspx.cs">
-      <DependentUpon>Part1.aspx</DependentUpon>
+    <Compile Include="App_Code\Demo.cs" />
+    <Compile Include="Sec4_Part1.aspx.cs">
+      <DependentUpon>Sec4_Part1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Part1.aspx.designer.cs">
-      <DependentUpon>Part1.aspx</DependentUpon>
+    <Compile Include="Sec4_Part1.aspx.designer.cs">
+      <DependentUpon>Sec4_Part1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Part2.aspx.cs">
-      <DependentUpon>Part2.aspx</DependentUpon>
+    <Compile Include="Sec4_Part2.aspx.cs">
+      <DependentUpon>Sec4_Part2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Part2.aspx.designer.cs">
-      <DependentUpon>Part2.aspx</DependentUpon>
+    <Compile Include="Sec4_Part2.aspx.designer.cs">
+      <DependentUpon>Sec4_Part2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Part3.aspx.cs">
-      <DependentUpon>Part3.aspx</DependentUpon>
+    <Compile Include="Sec4_Part3.aspx.cs">
+      <DependentUpon>Sec4_Part3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Part3.aspx.designer.cs">
-      <DependentUpon>Part3.aspx</DependentUpon>
+    <Compile Include="Sec4_Part3.aspx.designer.cs">
+      <DependentUpon>Sec4_Part3.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Part3ListBox.aspx.cs">
-      <DependentUpon>Part3ListBox.aspx</DependentUpon>
+    <Compile Include="Sec4_Part3ListBox.aspx.cs">
+      <DependentUpon>Sec4_Part3ListBox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Part3ListBox.aspx.designer.cs">
-      <DependentUpon>Part3ListBox.aspx</DependentUpon>
+    <Compile Include="Sec4_Part3ListBox.aspx.designer.cs">
+      <DependentUpon>Sec4_Part3ListBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sec5.aspx.cs">
+      <DependentUpon>Sec5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sec5.aspx.designer.cs">
+      <DependentUpon>Sec5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sec6.aspx.cs">
+      <DependentUpon>Sec6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sec6.aspx.designer.cs">
+      <DependentUpon>Sec6.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Theme1\Label.skin" />
+    <Content Include="App_Themes\Theme2\Label.skin" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
