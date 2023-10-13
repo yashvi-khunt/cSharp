@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CourseMasterPage.master.cs" Inherits="WebApplication3.CourseMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 400px;
+        }
+
+        .auto-style2 {
+            height: 25px;
+        }
+
+        .auto-style3 {
+            height: 347px;
+        }
+
+        .auto-style4 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .auto-style5 {
+            width: 254px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2" style="background-color: #3399FF">This is header&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnMaster" runat="server" OnClick="btnMaster_Click" Text="Button" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblBtnClick" runat="server" Text="Label"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <table class="auto-style4">
+                            <tr>
+                                <td class="auto-style5" style="vertical-align: top; text-align: center; background-color: #66CCFF;"><strong>Courses</strong><br />
+                                    <br />
+                                    <a href="<%=Page.ResolveUrl("~/CSharp.aspx")%>">CSharp</a><br />
+                                    <a href="<%=Page.ResolveUrl("~/ASPNet.aspx")%>">ASPNet</a><br />
+                                    <a href="<%=Page.ResolveUrl("~/SQLServer.aspx")%>">SQLServer</a><br />
+                                    <br />
+                                    <strong>Batch Start Date</strong><br />
+                                    <asp:ContentPlaceHolder ID="cphStartDate" runat="server">
+                                        <p>
+                                            Not Scheduled
+                                        </p>
+                                    </asp:ContentPlaceHolder>
+
+                                    <a href="Admin/ManageCourses.aspx">ManageCourses</a>
+                                </td>
+                                <td style="vertical-align: top">
+                                    <asp:ContentPlaceHolder ID="cphCourseDetails" runat="server">
+                                        <p>
+                                            Page Under Construction ........
+                                        </p>
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #3399FF">This is footer</td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+</body>
+</html>

@@ -67,6 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ManageCourses.aspx" />
+    <Content Include="Admin\Sec12P2.aspx" />
+    <Content Include="AppSettings.xml" />
+    <Content Include="ASPNet.aspx" />
+    <Content Include="Computer.aspx" />
+    <Content Include="CSharp.aspx" />
+    <Content Include="DefaultErrorPage.aspx" />
+    <Content Include="FileNotFound.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\brand-1.png" />
+    <Content Include="images\brand-2.png" />
+    <Content Include="images\brand-3.png" />
+    <Content Include="Sec12.aspx" />
     <Content Include="Sec4_Part1.aspx" />
     <Content Include="Sec4_Part2.aspx" />
     <Content Include="Sec4_Part3.aspx" />
@@ -75,10 +88,77 @@
     <Content Include="Sec6.aspx" />
     <Content Include="Sec7Source.aspx" />
     <Content Include="Sec7Target.aspx" />
+    <Content Include="SQLServer.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ManageCourses.aspx.cs">
+      <DependentUpon>ManageCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageCourses.aspx.designer.cs">
+      <DependentUpon>ManageCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sec12P2.aspx.cs">
+      <DependentUpon>Sec12P2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Sec12P2.aspx.designer.cs">
+      <DependentUpon>Sec12P2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\Demo.cs" />
+    <Compile Include="ASPNet.aspx.cs">
+      <DependentUpon>ASPNet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPNet.aspx.designer.cs">
+      <DependentUpon>ASPNet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Computer.aspx.cs">
+      <DependentUpon>Computer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Computer.aspx.designer.cs">
+      <DependentUpon>Computer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CourseMasterPage.Master.cs">
+      <DependentUpon>CourseMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseMasterPage.Master.designer.cs">
+      <DependentUpon>CourseMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CSharp.aspx.cs">
+      <DependentUpon>CSharp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CSharp.aspx.designer.cs">
+      <DependentUpon>CSharp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultErrorPage.aspx.cs">
+      <DependentUpon>DefaultErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultErrorPage.aspx.designer.cs">
+      <DependentUpon>DefaultErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileNotFound.aspx.cs">
+      <DependentUpon>FileNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileNotFound.aspx.designer.cs">
+      <DependentUpon>FileNotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Sec12.aspx.cs">
+      <DependentUpon>Sec12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sec12.aspx.designer.cs">
+      <DependentUpon>Sec12.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sec4_Part1.aspx.cs">
       <DependentUpon>Sec4_Part1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,11 +216,19 @@
     <Compile Include="Sec7Target.aspx.designer.cs">
       <DependentUpon>Sec7Target.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SQLServer.aspx.cs">
+      <DependentUpon>SQLServer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SQLServer.aspx.designer.cs">
+      <DependentUpon>SQLServer.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Theme1\Label.skin" />
     <Content Include="App_Themes\Theme2\Label.skin" />
-    <None Include="packages.config" />
+    <Content Include="CourseMasterPage.Master" />
+    <Content Include="Admin\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
