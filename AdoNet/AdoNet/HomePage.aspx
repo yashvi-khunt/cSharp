@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Welcome to Home Page
+            <%string v = Request.QueryString["userName"]; %>
+            Welcome <%= v%> to Home Page
             <br />
             <a href="DataSet.aspx">DataSet</a>
             <br />

@@ -35,9 +35,11 @@ namespace AdoNet
             //}
 
             if (ValidateUser(txtUsername.Text, txtPwd.Text))
-                FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,false);
-            else
-                Response.Redirect("~/HomePage.aspx", true);
+            {
+                FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, false);
+                Response.Redirect("~/HomePage.aspx?userName="+txtUsername.Text, true);
+            }
+
         }
 
 
@@ -71,7 +73,7 @@ namespace AdoNet
                 conn.Open();
 
                 // Create SqlCommand to select pwd field from users table given supplied userName.
-                cmd = new SqlCommand("Select pwd from users where uname=@userName", conn);
+                cmd = new SqlCommand($"Select pwd from users where uname='{userName}'", conn);
                 cmd.Parameters.Add("@userName", SqlDbType.VarChar, 25);
                 cmd.Parameters["@userName"].Value = userName;
 
@@ -93,6 +95,7 @@ namespace AdoNet
             if (null == lookupPassword)
             {
                 // You could write failed login attempts here to event log for additional security.
+                lblError.Text = "Incorrect UserName or Password";
                 return false;
             }
 
