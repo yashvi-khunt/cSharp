@@ -28,15 +28,16 @@ namespace Exercise2
                     id = Context.Items[$"PartyID"].ToString();
                     name = Context.Items[$"PartyName"].ToString();
                 }
+                pageTitle.Text = action + " party";
+                lblName.Text = "Party Name";
+
+                if (action == "Edit")
+                {
+                    txtName.Text = name;
+                }
             }
 
-            pageTitle.Text = action + " party";
-            lblName.Text = "Party Name";
-
-            if (action == "Edit")
-            {
-                txtName.Text = name;
-            }
+            
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
