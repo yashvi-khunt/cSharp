@@ -19,7 +19,7 @@ namespace WebApplication3
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Settings.SessionCounter++;
+            //Settings.SessionCounter++;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace WebApplication3
 
         protected void Session_End(object sender, EventArgs e)
         {
-            Settings.SessionCounter--;
+            //Settings.SessionCounter--;
         }
 
         protected void Application_End(object sender,   EventArgs e)

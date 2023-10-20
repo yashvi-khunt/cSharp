@@ -26,7 +26,8 @@
             <br />
             <br />
             <a href="Sec7Target.aspx">
-                <asp:Button ID="btnCrossPagePostBack" runat="server" Text="CrossPagePostBack" PostBackUrl="~/Sec7Target.aspx" />
+                <asp:Button ID="btnCrossPagePostBack" runat="server" Text="CrossPagePostBack"  />
+            <%--PostBackUrl="~/Sec7Target.aspx"--%>
             </a>
         </div>
     </form>

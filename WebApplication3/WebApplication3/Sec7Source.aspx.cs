@@ -21,12 +21,19 @@ namespace WebApplication3
             {
                 return txtDemo.Text;
             }
+            set
+            {
+                txtDemo.Text = value;
+            }
         }
 
         protected void btnRedirect_Click(object sender, EventArgs e)
         {
-            string value = txtDemo.Text;
-            Response.Redirect("Sec7Target.aspx?demo=" + value);
+            //string value = txtDemo.Text;
+            //Response.Redirect("Sec7Target.aspx?demo=" + value);
+
+            txtDemo.Text = "hello";
+            btnCrossPagePostBack.PostBackUrl = "~/Sec7Target.aspx";
         }
 
         protected void btnTransfer_Click(object sender, EventArgs e)

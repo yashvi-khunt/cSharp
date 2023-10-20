@@ -29,12 +29,12 @@ namespace WebApplication3
             }
             else
             {
-                //string value = Context.Items["demo"].ToString();
+                string value = Context.Items["demo"].ToString();
 
                 //TextBox txtDemo = (TextBox)PreviousPage.FindControl("txtDemo");
                 //string value = txtDemo.Text;
 
-                string value = PreviousPage.DemoText;
+                //string value = PreviousPage.DemoText;
                 Response.Write("Transfer - <b>"+value+"</b>");
             }
         }
