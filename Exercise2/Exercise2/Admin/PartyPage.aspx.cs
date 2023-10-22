@@ -74,5 +74,38 @@ namespace Exercise2
             Server.Transfer("~/AddEditParty.aspx");
 
         }
+
+        protected void deleteBtn_Click(object sender, EventArgs e)
+        {
+            Button editBtn = (Button)sender;
+            GridViewRow selectedRow = (GridViewRow)editBtn.NamingContainer;
+
+            string partyid = selectedRow.Cells[0].Text;
+            SqlConnection conn = null;
+            SqlCommand cm;
+            try
+            {
+                conn = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
+
+                cm = new SqlCommand("DeleteParty", conn);
+                cm.CommandType = System.Data.CommandType.StoredProcedure;
+                cm.Parameters.Add(new SqlParameter("@partyid", SqlDbType.Int) { Value = partyid });
+
+                conn.Open();
+
+                cm.ExecuteScalar() ;
+                //string result = cm.ExecuteScalar().ToString();
+
+                //lblError.Text = result;
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

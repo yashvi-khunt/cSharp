@@ -33,7 +33,7 @@
            <asp:TemplateField HeaderText="Action">
                <ItemTemplate>
                    <asp:Button ID="editBtn" OnClick="editBtn_Click" runat="server" CssClass="btn grid-btn" Text="Edit"/>
-                   <asp:Button ID="deleteBtn" runat="server"  CssClass="btn grid-btn" Text="Delete"/>
+                   <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server"  CssClass="btn grid-btn" Text="Delete"/>
                </ItemTemplate>
            </asp:TemplateField>
         </Columns>

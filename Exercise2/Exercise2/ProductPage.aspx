@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ProductPage.aspx.cs" Inherits="Exercise2.ProductPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ProductPage.aspx.cs" Inherits="Exercise2.ProductPage"  EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        #<%= btnAddProduct.ClientID %>{
+        #<%= btnAddProduct.ClientID %> {
             padding: 10px 20px;
             border: none;
             border-radius: 10px;
@@ -11,10 +11,10 @@
     </style>
 
 </asp:Content>
-<asp:Content ID="PartyTitle" ContentPlaceHolderID="PageTitle" runat="server">Product List</asp:Content>
+<asp:Content ID="ProductTitle" ContentPlaceHolderID="PageTitle" runat="server">Product List</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ListContent" runat="server">
     <div class="add-btn-wrapper">
-        <asp:Button ID="btnAddProduct" runat="server" Text="Add Product" />
+        <asp:Button ID="btnAddProduct" runat="server" Text="Add Product" OnClick="btnAddProduct_Click" />
     </div>
     <asp:GridView ID="productGrid" CssClass="grid" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
@@ -30,7 +30,14 @@
         <Columns>
             <asp:BoundField DataField="ProductID" HeaderText="#" />
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
-            <asp:CommandField ControlStyle-CssClass="grid-btn btn" ButtonType="Button" ShowEditButton="True" ShowDeleteButton="true" HeaderText="Action" />
+            <asp:BoundField DataField="ProductRate" HeaderText="Product Rate" />
+            <asp:BoundField DataField="ProductDate" HeaderText="Date" />
+            <asp:TemplateField HeaderText="Action">
+                <ItemTemplate>
+                    <asp:Button ID="editBtn" OnClick="editBtn_Click" runat="server" CssClass="btn grid-btn" Text="Edit" />
+                    <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server" CssClass="btn grid-btn" Text="Delete" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 
