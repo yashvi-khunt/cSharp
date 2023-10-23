@@ -26,20 +26,17 @@ namespace Exercise2
                     id = Context.Items["ProductID"].ToString();
                     name = Context.Items["ProductName"].ToString();
                     rate = Context.Items["ProductRate"].ToString() ;    
-                    date = Context.Items["ProductDate"].ToString();  
-                    
+                    date = Context.Items["ProductDate"].ToString();
+
+                    txtName.Text = name;
+                    txtRate.Text = rate;
+
+                    txtDate.Text = Convert.ToDateTime(date).Date.ToString("yyyy-MM-dd");
+
                 }
                 pageTitle.Text = action + " Product";
 
             }
-
-            if (action == "Edit")
-            {
-                txtName.Text = name;
-                txtRate.Text = rate;
-                txtDate.Text = date;
-            }
-
 
         }
 
@@ -86,9 +83,9 @@ namespace Exercise2
             {
                 conn.Close();
             }
-            txtName.Text = string.Empty;
-            txtDate.Text = string.Empty;
-            txtRate.Text = string.Empty;
+            txtName.Text = newName;
+            txtDate.Text = newDate;
+            txtRate.Text = newRate;
 
         }
 

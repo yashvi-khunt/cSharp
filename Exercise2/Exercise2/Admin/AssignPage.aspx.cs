@@ -45,5 +45,10 @@ namespace Exercise2
             }
 
         }
+
+        protected void btnAddAssign_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("~/AddAssign.aspx");
+        }
     }
 }

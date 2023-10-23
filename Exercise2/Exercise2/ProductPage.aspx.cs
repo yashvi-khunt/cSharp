@@ -12,7 +12,7 @@ namespace Exercise2
 {
     public partial class ProductPage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_LoadComplete(object sender, EventArgs e)
         {
 
             SqlConnection con = null;
@@ -104,7 +104,7 @@ namespace Exercise2
             {
                 conn.Close();
             }
-
+           
         }
     }
 }

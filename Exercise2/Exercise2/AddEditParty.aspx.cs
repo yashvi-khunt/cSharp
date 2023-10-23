@@ -35,10 +35,9 @@ namespace Exercise2
                 {
                     txtName.Text = name;
                 }
-            }
-
-            
+            } 
         }
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {

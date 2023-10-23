@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AddEditParty.aspx" />
     <Content Include="AddEditProduct.aspx" />
+    <Content Include="AddAssign.aspx" />
     <Content Include="Admin\AssignPage.aspx" />
     <Content Include="CSS\Master.css" />
     <Content Include="InvoicePage.aspx" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="AddEditProduct.aspx.designer.cs">
       <DependentUpon>AddEditProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddAssign.aspx.cs">
+      <DependentUpon>AddAssign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAssign.aspx.designer.cs">
+      <DependentUpon>AddAssign.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AssignPage.aspx.cs">
       <DependentUpon>AssignPage.aspx</DependentUpon>

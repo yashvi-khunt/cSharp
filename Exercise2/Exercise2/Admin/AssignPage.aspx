@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AssignPage.aspx.cs" Inherits="Exercise2.AssignPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AssignPage.aspx.cs" Inherits="Exercise2.AssignPage" EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
     #<%= btnAddAssign.ClientID %>{
@@ -12,7 +12,7 @@
 <asp:Content ID="AssignTitle" ContentPlaceHolderID="PageTitle" runat="server">Assign Party List</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ListContent" runat="server">
     <div class="add-btn-wrapper">
-        <asp:Button ID="btnAddAssign" runat="server" Text="Add New Assign" />
+        <asp:Button ID="btnAddAssign" runat="server" Text="Add New Assign" OnClick="btnAddAssign_Click" />
     </div>
     <asp:GridView ID="assignGrid" CssClass="grid" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
