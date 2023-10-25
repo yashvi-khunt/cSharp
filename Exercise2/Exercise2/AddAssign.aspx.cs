@@ -19,7 +19,7 @@ namespace Exercise2.Admin
                 con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
                 con.Open();
                 SqlCommand cmd = new SqlCommand("get_party", con);
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -31,7 +31,7 @@ namespace Exercise2.Admin
                 }
 
                 cmd = new SqlCommand("get_products", con);
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
            
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {

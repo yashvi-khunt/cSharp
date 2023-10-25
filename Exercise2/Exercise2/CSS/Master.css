@@ -127,3 +127,8 @@ ul, li, a {
         justify-content:center;
         gap: 10px;
     }
+
+.error{
+    grid-template-columns:auto;
+    text-align:center;
+}

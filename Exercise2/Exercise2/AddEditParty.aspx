@@ -17,7 +17,7 @@
             </div>
         </div>
         
-        <div class="row">
+        <div class="row error">
             <asp:Label ID="lblError" ForeColor="Red" runat="server"></asp:Label>    
         </div>
 

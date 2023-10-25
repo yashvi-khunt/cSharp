@@ -19,7 +19,7 @@ namespace Exercise2
             if (!IsPostBack)
             {
                 action = Context.Items["ActionName"].ToString();
-
+                txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
                 if (action == "Edit")
                 {
