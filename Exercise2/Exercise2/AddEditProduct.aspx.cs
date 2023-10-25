@@ -83,10 +83,9 @@ namespace Exercise2
             {
                 conn.Close();
             }
-            txtName.Text = newName;
-            txtDate.Text = newDate;
-            txtRate.Text = newRate;
-
+            txtName.Text = string.Empty;
+            txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            txtRate.Text = string.Empty;
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

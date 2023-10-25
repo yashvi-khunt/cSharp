@@ -13,42 +13,47 @@ namespace Exercise2.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = null;
-            try
+            if (!IsPostBack)
             {
-                con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
-                con.Open();
-                SqlCommand cmd = new SqlCommand("get_party", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        ListItem partyNames = new ListItem(reader["PartyName"].ToString(), reader["PartyID"].ToString());
-                        DDParty.Items.Add(partyNames);
-                    }
-                }
 
-                cmd = new SqlCommand("get_products", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-           
-                using (SqlDataReader reader = cmd.ExecuteReader())
+
+                SqlConnection con = null;
+                try
                 {
-                    while (reader.Read())
+                    con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("get_party", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        ListItem productNames = new ListItem(reader["ProductName"].ToString(), reader["ProductID"].ToString());
-                        DDProduct.Items.Add(productNames);
+                        while (reader.Read())
+                        {
+                            ListItem partyNames = new ListItem(reader["PartyName"].ToString(), reader["PartyID"].ToString());
+                            DDParty.Items.Add(partyNames);
+                        }
+                    }
+
+                    cmd = new SqlCommand("get_products", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ListItem productNames = new ListItem(reader["ProductName"].ToString(), reader["ProductID"].ToString());
+                            DDProduct.Items.Add(productNames);
+                        }
                     }
                 }
-            }
-            catch(Exception ex)
-            {
-                Response.Write(ex.Message);
-            }
-            finally
-            {
-                con.Close();
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
 

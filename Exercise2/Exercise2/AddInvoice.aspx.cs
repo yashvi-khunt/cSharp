@@ -65,7 +65,7 @@ namespace Exercise2
             {
                 con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("get_partyInvoice", con);
+                SqlCommand cmd = new SqlCommand("get_partyInvoiceList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -91,14 +91,66 @@ namespace Exercise2
 
         protected void btnAddInvoice_Click(object sender, EventArgs e)
         {
-            string invoiceId;
+            string invoiceId= string.Empty;
             if (!counter)
             {
                 invoiceId = CreateNewInvoice();
-                Response.Write(invoiceId);
+                SqlConnection con = null;
+                try
+                {
+                    con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
+
+                    SqlCommand cm = new SqlCommand("get_InvoicebyId", con);
+                    cm.CommandType = CommandType.StoredProcedure;
+                    cm.Parameters.Add(new SqlParameter("@invoiceid", SqlDbType.Int) { Value = invoiceId });
+                    cm.Parameters.Add(new SqlParameter("@date", SqlDbType.Date) { Direction = ParameterDirection.Output });
+                    cm.Parameters.Add(new SqlParameter("@party", SqlDbType.Int) { Direction = ParameterDirection.Output });
+
+                    con.Open();
+                    cm.ExecuteNonQuery();
+
+                    lblParty.Text = cm.Parameters["@party"].Value.ToString();
+                    lblInvoiceid.Text = invoiceId;
+                    lblDate.Text = cm.Parameters["@date"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    con.Close();
+                }
                 counter = true;
             }
-           
+
+
+            SqlConnection connection = null;
+
+            try
+            {
+                connection = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
+                SqlCommand cm = new SqlCommand("get_invoiceDetailsById", connection);
+                cm.CommandType = CommandType.StoredProcedure;
+                cm.Parameters.Add(new SqlParameter("@invid", SqlDbType.Int) { Value = invoiceId });
+
+                connection.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cm);
+                DataTable dt = new DataTable();
+
+                sda.Fill(dt);
+
+                currentInvoiceGrid.DataSource = dt;
+                currentInvoiceGrid.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public string CreateNewInvoice()
@@ -139,7 +191,7 @@ namespace Exercise2
             {
                 con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("get_productInvoice", con);
+                SqlCommand cmd = new SqlCommand("get_productInvoiceList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@partyid", SqlDbType.Int) { Value = partyid });
 
@@ -175,7 +227,7 @@ namespace Exercise2
             {
                 con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("get_productRate", con);
+                SqlCommand cmd = new SqlCommand("get_productRateList", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@productid", SqlDbType.Int) { Value = productid });
 
