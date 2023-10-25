@@ -55,5 +55,33 @@ namespace Exercise2
                 con.Close();
             }
         }
+
+        protected void btnAddInvoice_Click(object sender, EventArgs e)
+        {
+            Context.Items["ActionName"] = "Add";
+            Server.Transfer("~/AddInvoice.aspx");
+        }
+
+        protected void editBtn_Click(object sender, EventArgs e)
+        {
+
+            Button editBtn = (Button)sender;
+            GridViewRow selectedRow = (GridViewRow)editBtn.NamingContainer;
+            string invoiceid = selectedRow.Cells[0].Text;
+
+            Context.Items["InvoiceID"] = invoiceid;
+            Context.Items["ActionName"] = "Edit";
+            Server.Transfer("~/AddInvoice.aspx");
+        }
+
+        protected void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void viewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

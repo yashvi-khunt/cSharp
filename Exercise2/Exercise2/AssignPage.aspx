@@ -1,13 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AssignPage.aspx.cs" Inherits="Exercise2.AssignPage" EnableEventValidation="false"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AssignPage.aspx.cs" Inherits="Exercise2.AssignPage" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-    #<%= btnAddAssign.ClientID %>{
-        padding: 10px 20px;
-        border: none;
-        border-radius: 10px;
-        background-color: coral;
-    }
-</style>
+        #<%= btnAddAssign.ClientID %> {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: coral;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="AssignTitle" ContentPlaceHolderID="PageTitle" runat="server">Assign Party List</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ListContent" runat="server">
@@ -28,7 +29,11 @@
         <Columns>
             <asp:BoundField DataField="PartyName" HeaderText="Party Name" />
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
-            <asp:CommandField ControlStyle-CssClass="grid-btn btn" ButtonType="Button" ShowEditButton="false" ShowDeleteButton="true" HeaderText="Action" />
+            <asp:TemplateField HeaderText="Action">
+                <ItemTemplate>
+                    <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server" CssClass="btn grid-btn" Text="Delete" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 

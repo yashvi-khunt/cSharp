@@ -70,11 +70,12 @@
     <Content Include="AddEditParty.aspx" />
     <Content Include="AddEditProduct.aspx" />
     <Content Include="AddAssign.aspx" />
-    <Content Include="Admin\AssignPage.aspx" />
+    <Content Include="AddInvoice.aspx" />
+    <Content Include="AssignPage.aspx" />
     <Content Include="CSS\Master.css" />
     <Content Include="InvoicePage.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Admin\PartyPage.aspx" />
+    <Content Include="PartyPage.aspx" />
     <Content Include="ProductPage.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="CSS\formstyle.css" />
@@ -102,11 +103,18 @@
     <Compile Include="AddAssign.aspx.designer.cs">
       <DependentUpon>AddAssign.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AssignPage.aspx.cs">
+    <Compile Include="AddInvoice.aspx.cs">
+      <DependentUpon>AddInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddInvoice.aspx.designer.cs">
+      <DependentUpon>AddInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssignPage.aspx.cs">
       <DependentUpon>AssignPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AssignPage.aspx.designer.cs">
+    <Compile Include="AssignPage.aspx.designer.cs">
       <DependentUpon>AssignPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="InvoicePage.aspx.cs">
@@ -130,11 +138,11 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\PartyPage.aspx.cs">
+    <Compile Include="PartyPage.aspx.cs">
       <DependentUpon>PartyPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\PartyPage.aspx.designer.cs">
+    <Compile Include="PartyPage.aspx.designer.cs">
       <DependentUpon>PartyPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductPage.aspx.cs">
@@ -155,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
-    <Content Include="Admin\Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

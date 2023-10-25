@@ -83,7 +83,7 @@ namespace Exercise2
         protected void btnCancel_Click(object sender, EventArgs e)
         {
 
-            Response.Redirect("~/Admin/PartyPage.aspx");
+            Response.Redirect("~/PartyPage.aspx");
 
         }
     }

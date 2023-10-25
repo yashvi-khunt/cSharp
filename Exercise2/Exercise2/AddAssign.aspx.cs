@@ -54,12 +54,39 @@ namespace Exercise2.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            string partyID = DDParty.Text;
+            string productID = DDProduct.Text;
 
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
+
+                SqlCommand cm = new SqlCommand("add_assign",con);
+                cm.CommandType = CommandType.StoredProcedure;
+                cm.Parameters.Add(new SqlParameter("@partyID", SqlDbType.Int){ Value = partyID});
+                cm.Parameters.Add(new SqlParameter("@productID", SqlDbType.Int) { Value = productID });
+
+                con.Open();
+
+                string result = cm.ExecuteScalar().ToString();
+
+                lblError.Text = result;
+
+            }
+            catch(Exception ex)
+            {
+                lblError.Text = ex.Message;
+            }
+            finally {
+                con.Close();
+            }
+           
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Admin/AssignPage.aspx");
+            Response.Redirect("~/AssignPage.aspx");
         }
     }
 }

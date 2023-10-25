@@ -15,11 +15,11 @@
                 <ul>
                     <li>Invoice Module</li>
                     <li>
-                        <a href="~/Admin/PartyPage.aspx" runat="server">Party</a></li>
+                        <a href="~/PartyPage.aspx" runat="server">Party</a></li>
                     <li>
                         <a href="~/ProductPage.aspx" runat="server">Product</a></li>
                     <li>
-                        <a href="~/Admin/AssignPage.aspx" runat="server">Assign Party</a></li>
+                        <a href="~/AssignPage.aspx" runat="server">Assign Party</a></li>
                     <li>
                         <a href="~/InvoicePage.aspx" runat="server">Invoice</a></li>
                 </ul>

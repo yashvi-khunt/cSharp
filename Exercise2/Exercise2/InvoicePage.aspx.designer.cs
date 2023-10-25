@@ -14,22 +14,22 @@ namespace Exercise2
     public partial class InvoicePage
     {
 
-        /// <summary>
-        /// btnAddInvoice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddInvoice;
+    /// <summary>
+    /// btnAddInvoice control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnAddInvoice;
 
-        /// <summary>
-        /// invoiceGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView invoiceGrid;
-    }
+/// <summary>
+/// invoiceGrid control.
+/// </summary>
+/// <remarks>
+/// Auto-generated field.
+/// To modify move field declaration from designer file to code-behind file.
+/// </remarks>
+protected global::System.Web.UI.WebControls.GridView invoiceGrid;
+}
 }
