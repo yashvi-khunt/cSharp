@@ -8,10 +8,6 @@
             border-radius: 10px;
             background-color: coral;
         }
-
-        .grid-btn:nth-last-child(1){
-            background-color: darkgray;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="InvoiceTitle" ContentPlaceHolderID="PageTitle" runat="server">Invoice List</asp:Content>
@@ -20,7 +16,7 @@
     <div class="add-btn-wrapper">
         <asp:Button ID="btnAddInvoice" runat="server" Text="Add Invoice" OnClick="btnAddInvoice_Click" />
     </div>
-    <asp:GridView ID="invoiceGrid" CssClass="grid" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+    <asp:GridView ID="invoiceGrid" CssClass="grid" AutoGenerateColumns="False" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" AllowPaging="False">
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
         <HeaderStyle BackColor="#FFFFFF" Font-Bold="True" ForeColor="#3f51b5" />
         <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
@@ -35,11 +31,10 @@
             <asp:BoundField DataField="InvoiceId" HeaderText="#" />
             <asp:BoundField DataField="PartyName" HeaderText="Party Name" />
             <asp:BoundField DataField="InvoiceDate" HeaderText="Date" />
+            <asp:BoundField DataField="GrandTotal" HeaderText="Grand Total" />
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
-                    <asp:Button ID="editBtn" OnClick="editBtn_Click"  runat="server" CssClass="btn grid-btn" Text="Edit" />
-                    <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click"  runat="server" CssClass="btn grid-btn" Text="Delete" />
-                    <asp:Button ID="viewBtn" OnClick="viewBtn_Click" runat="server" CssClass="btn grid-btn" Text="View Details" />
+                    <asp:Button ID="viewBtn" OnClick="viewBtn_Click" runat="server" CssClass="btn grid-btn btn-cancel" Text="View Details" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

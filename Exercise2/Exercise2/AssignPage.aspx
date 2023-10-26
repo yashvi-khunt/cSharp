@@ -31,7 +31,7 @@
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
-                    <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server" CssClass="btn grid-btn" Text="Delete" />
+                    <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server" CssClass="btn grid-btn btn-delete" Text="Delete" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

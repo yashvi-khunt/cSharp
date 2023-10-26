@@ -132,6 +132,15 @@ namespace Exercise2
         protected global::System.Web.UI.WebControls.Button btnAddInvoice;
 
         /// <summary>
+        /// detailView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detailView;
+
+        /// <summary>
         /// lblInvoiceid control.
         /// </summary>
         /// <remarks>
@@ -166,5 +175,23 @@ namespace Exercise2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView currentInvoiceGrid;
+
+        /// <summary>
+        /// lblGTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGTotal;
+
+        /// <summary>
+        /// btnClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClose;
     }
 }

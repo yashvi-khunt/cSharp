@@ -1,12 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddInvoice.aspx.cs" Inherits="Exercise2.AddInvoice" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .invoice-container{
-            display: flex;
-            justify-content: center;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
     <asp:Label ID="pageTitle" runat="server" Text="Add Invoice"></asp:Label>
@@ -52,7 +46,7 @@
             </div>
             <div class="col">:</div>
             <div class="col">
-                <asp:TextBox ID="txtRate" CssClass="input" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtRate" CssClass="input" runat="server" TextMode="Number" Enabled="false"></asp:TextBox>
             </div>
         </div>
 
@@ -77,7 +71,7 @@
         </div>
     </div>
     <br />
-    <div class="invoice-container-wrapper">
+    <div id="detailView" runat="server" class="invoice-container-wrapper">
 
         <div class="invoice-container">
             <div class="row">
@@ -115,13 +109,36 @@
             <SortedDescendingCellStyle BackColor="#D6DFDF" />
             <SortedDescendingHeaderStyle BackColor="#002876" />
 
-
             <Columns>
+                <asp:BoundField DataField="id" HeaderText="#" />
                 <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
                 <asp:BoundField DataField="ProductRate" HeaderText="Product Rate" />
                 <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
                 <asp:BoundField DataField="Total" HeaderText="Total" />
+
+                <asp:TemplateField HeaderText="Action">
+                    <ItemTemplate>
+                        <asp:Button ID="editBtn"  runat="server" CssClass="btn grid-btn btn-edit" OnClick="editBtn_Click" Text="Edit" />
+                        <asp:Button ID="deleteBtn"  runat="server" CssClass="btn grid-btn btn-delete" OnClick="deleteBtn_Click" Text="Delete" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
+
+
+        <div class="invoice-container">
+            <div class="row">
+                <div class="col"><b>Grand Total</b></div>
+                <div class="col">:</div>
+                <div class="col">
+                    <asp:Label ID="lblGTotal" runat="server" Text="100"></asp:Label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <asp:Button ID="btnClose" CssClass="btn btn-delete" runat="server" Text="Close" OnClick="btnClose_Click" />
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>

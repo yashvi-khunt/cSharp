@@ -32,8 +32,8 @@
             <asp:BoundField DataField="PartyName" HeaderText="Party Name" />
            <asp:TemplateField HeaderText="Action">
                <ItemTemplate>
-                   <asp:Button ID="editBtn" OnClick="editBtn_Click" runat="server" CssClass="btn grid-btn" Text="Edit"/>
-                   <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server"  CssClass="btn grid-btn" Text="Delete"/>
+                   <asp:Button ID="editBtn" OnClick="editBtn_Click" runat="server" CssClass="btn grid-btn btn-edit" Text="Edit"/>
+                   <asp:Button ID="deleteBtn" OnClick="deleteBtn_Click" runat="server"  CssClass="btn grid-btn btn-delete" Text="Delete"/>
                </ItemTemplate>
            </asp:TemplateField>
         </Columns>

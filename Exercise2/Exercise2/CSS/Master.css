@@ -73,11 +73,11 @@ ul, li, a {
     padding: 10px 12px;
 }
 
-    .grid-btn:nth-child(1) {
+    .btn-edit {
         background-color: dodgerblue;
     }
 
-    .grid-btn:nth-child(2) {
+    .btn-delete{
         background-color: orangered;
     }
     
@@ -131,4 +131,9 @@ ul, li, a {
 .error{
     grid-template-columns:auto;
     text-align:center;
+}
+
+.invoice-container {
+    display: flex;
+    justify-content: center;
 }

@@ -28,21 +28,6 @@ namespace Exercise2
 
                 sda.Fill(dt);
 
-                //dt.Columns["invoiceDate"].ReadOnly = false;
-                //DateTime dateandTime = DateTime.Parse();
-                //dt.Columns["invoiceDate"] = dateandTime.Date; 
-                //int i = 0;
-                //string d = "";
-                //foreach (DataRow dr in dt.Rows)
-                //{
-                //    d = ((DateTime)dr["invoiceDate"]).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                //    Response.Write(d);
-                //    dt.Rows[i]["invoiceDate"] = d;
-
-                //    Response.Write(dt.Rows[i]["invoiceDate"]);
-                //    i++;
-                //}
-
                 invoiceGrid.DataSource = dt;
                 invoiceGrid.DataBind();
             }
@@ -58,30 +43,19 @@ namespace Exercise2
 
         protected void btnAddInvoice_Click(object sender, EventArgs e)
         {
-            Context.Items["ActionName"] = "Add";
             Server.Transfer("~/AddInvoice.aspx");
         }
 
-        protected void editBtn_Click(object sender, EventArgs e)
-        {
-
-            Button editBtn = (Button)sender;
-            GridViewRow selectedRow = (GridViewRow)editBtn.NamingContainer;
-            string invoiceid = selectedRow.Cells[0].Text;
-
-            Context.Items["InvoiceID"] = invoiceid;
-            Context.Items["ActionName"] = "Edit";
-            Server.Transfer("~/AddInvoice.aspx");
-        }
-
-        protected void deleteBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void viewBtn_Click(object sender, EventArgs e)
         {
+            Button viewBtn = (Button)sender;
+            GridViewRow selectedRow = (GridViewRow)viewBtn.NamingContainer;
 
+            string invid = selectedRow.Cells[0].Text;
+
+            Context.Items["invID"] = invid;
+            Server.Transfer("~/ViewInvoice.aspx");
         }
     }
 }
