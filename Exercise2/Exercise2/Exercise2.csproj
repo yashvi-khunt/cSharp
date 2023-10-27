@@ -73,6 +73,7 @@
     <Content Include="AddInvoice.aspx" />
     <Content Include="AssignPage.aspx" />
     <Content Include="CSS\Master.css" />
+    <Content Include="Global.asax" />
     <Content Include="InvoicePage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PartyPage.aspx" />
@@ -117,6 +118,9 @@
     </Compile>
     <Compile Include="AssignPage.aspx.designer.cs">
       <DependentUpon>AssignPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="InvoicePage.aspx.cs">
       <DependentUpon>InvoicePage.aspx</DependentUpon>

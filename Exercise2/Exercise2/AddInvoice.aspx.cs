@@ -13,8 +13,8 @@ namespace Exercise2
 {
     public partial class AddInvoice : System.Web.UI.Page
     {
-        public static string invoiceId, partyId, productid;
-        static bool counter = false;
+        public static string invoiceId, partyId, productid, invdetailsid;
+        static bool counter = false, isEdit = false;
         static int grandTotal = 0;
 
         protected void Page_load(object sender, EventArgs e)
@@ -29,6 +29,7 @@ namespace Exercise2
             if (!IsPostBack)
             {
                 counter = false;
+                isEdit = false;
                 grandTotal = 0;
                 //Fill Party DropDown
                 GetDropDownParty();
@@ -54,9 +55,27 @@ namespace Exercise2
             }
             //Get Product Rate
             GetTxtRate(productid);
-            txtQuantity.Text = String.Empty;
+            if (!isEdit)
+            {
+                txtQuantity.Text = String.Empty;
+            }
         }
 
+        public bool validateQuantity()
+        {
+            int x;
+            if (!Int32.TryParse(txtQuantity.Text, out x))
+            {
+                lblError.Text = "Please enter required quantity";
+                return false;
+            }
+            else if (x > 1000 || x < 1)
+            {
+                lblError.Text = "Please enter a value between 1-100";
+                return false;
+            }
+            return true;
+        }
         public void GetDropDownParty()
         {
             DDParty.Items.Clear();
@@ -91,36 +110,46 @@ namespace Exercise2
 
         protected void btnAddInvoice_Click(object sender, EventArgs e)
         {
-
-            if (!counter)
+            if (validateQuantity())
             {
-                //creates invoice
-                invoiceId = CreateNewInvoice();
-                counter = true;
-            }
-            if (invoiceId != string.Empty)
-            {
-                //retrieves and fills invoice data in textfields
-                GetInvoiceData(invoiceId);
-                detailView.Visible = true;
 
-                if(btnAddInvoice.Text == "Edit Invoice")
+
+                if (!counter)
                 {
-                    UpdateDataIntoInvoiceDetails(invoiceId);
+                    //creates invoice
+                    invoiceId = CreateNewInvoice();
+                    counter = true;
                 }
-                else
+                if (invoiceId != string.Empty)
                 {
-                    //insert data into database table invoice details
-                    InsertDataIntoInvoiceDetails(invoiceId);
+                    //retrieves and fills invoice data in textfields
+                    GetInvoiceData(invoiceId);
+                    detailView.Visible = true;
 
+                    if (isEdit)
+                    {
+                        UpdateDataIntoInvoiceDetails(invdetailsid);
+                    }
+                    else
+                    {
+                        //insert data into database table invoice details
+                        InsertDataIntoInvoiceDetails(invoiceId);
+
+                    }
+
+                    //get data into grid view from invoice details
+                    GetDataFromInvoiceDetails(invoiceId);
+
+                    //update grandTotal
+                    //CalculateGrandTotal();
+                    lblGTotal.Text = grandTotal.ToString();
+
+                    if (isEdit)
+                    {
+                        isEdit = false;
+                        btnAddInvoice.Text = "Add to Invoice";
+                    }
                 }
-
-                //get data into grid view from invoice details
-                GetDataFromInvoiceDetails(invoiceId);
-
-                //update grandTotal
-                //CalculateGrandTotal();
-                lblGTotal.Text = grandTotal.ToString();
             }
         }
 
@@ -148,7 +177,7 @@ namespace Exercise2
                 connection.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 Response.Write(ex);
             }
@@ -213,9 +242,9 @@ namespace Exercise2
                 connection.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch (Exception ex)
             {
-
+                Response.Write(ex.ToString());
             }
             finally
             {
@@ -247,7 +276,7 @@ namespace Exercise2
             }
             catch (Exception ex)
             {
-
+                Response.Write(ex.ToString());
             }
             finally
             {
@@ -275,7 +304,7 @@ namespace Exercise2
             }
             catch (Exception ex)
             {
-
+                Response.Write(ex.ToString());
             }
             finally
             {
@@ -294,11 +323,11 @@ namespace Exercise2
 
                 cm.CommandType = CommandType.StoredProcedure;
                 cm.Parameters.Add(new SqlParameter("@invid", SqlDbType.Int) { Value = invoiceId });
-                cm.Parameters.Add(new SqlParameter("@gt", SqlDbType.Int) { Value = grandTotal });
+
                 con.Open();
                 cm.ExecuteNonQuery();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { Response.Write(ex.Message); }
             finally { con.Close(); }
 
             counter = false;
@@ -310,17 +339,20 @@ namespace Exercise2
             Button viewBtn = (Button)sender;
             GridViewRow selectedRow = (GridViewRow)viewBtn.NamingContainer;
 
-            string invdetailsid = selectedRow.Cells[0].Text;
+            invdetailsid = selectedRow.Cells[0].Text;
             string productid = selectedRow.Cells[1].Text;
-            string rate = selectedRow.Cells[2].Text;
-            string quantity = selectedRow.Cells[3].Text;
+            string rate = selectedRow.Cells[3].Text;
+            string quantity = selectedRow.Cells[4].Text;
+            int total = Int32.Parse(selectedRow.Cells[5].Text);
 
-            DDProduct.SelectedValue = productid;
+            grandTotal -= total;
+
+            DDProduct.Text = productid;
             txtRate.Text = rate;
             txtQuantity.Text = quantity;
 
             btnAddInvoice.Text = "Edit invoice";
-
+            isEdit = true;
         }
 
         protected void deleteBtn_Click(object sender, EventArgs e)
@@ -328,11 +360,38 @@ namespace Exercise2
             Button viewBtn = (Button)sender;
             GridViewRow selectedRow = (GridViewRow)viewBtn.NamingContainer;
 
-            string invdetailsid = selectedRow.Cells[0].Text;
+            string invid = selectedRow.Cells[0].Text;
+            int total = Int32.Parse(selectedRow.Cells[5].Text);
+            grandTotal -= total;
+            lblGTotal.Text = grandTotal.ToString();
+            SqlConnection conn = null;
+            SqlCommand cm;
+            try
+            {
+                conn = new SqlConnection("data source = .; database = invoice; integrated security = SSPI");
 
+                cm = new SqlCommand("DeleteInvoiceDetails", conn);
+                cm.CommandType = System.Data.CommandType.StoredProcedure;
+                cm.Parameters.Add(new SqlParameter("@invid", SqlDbType.Int) { Value = invid });
 
-    
-           
+                conn.Open();
+
+                cm.ExecuteScalar();
+                //string result = cm.ExecuteScalar().ToString();
+
+                //lblError.Text = result;
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            GetDataFromInvoiceDetails(invoiceId);
         }
 
         public void GetDropDownProduct(string partyid, string current)

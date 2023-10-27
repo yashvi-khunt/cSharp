@@ -44,6 +44,7 @@
 
         <Columns>
             <asp:BoundField DataField="id" HeaderText="#"  />
+            
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
             <asp:BoundField DataField="ProductRate" HeaderText="Product Rate"/>
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" />

@@ -94,14 +94,11 @@ namespace Exercise2
                 conn.Open();
 
                 cm.ExecuteScalar() ;
-                //string result = cm.ExecuteScalar().ToString();
-
-                //lblError.Text = result;
+                
             }
             catch (Exception ex)
             {
-                //lblError.Text = ex.Message;
-             
+                Response.Write(ex.Message);
             }
             finally
             {

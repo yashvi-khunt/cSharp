@@ -17,11 +17,10 @@ namespace Exercise2
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
             if (!IsPostBack)
             {
                 action = Context.Items["ActionName"].ToString();
-                
+
 
                 if (action == "Edit")
                 {
@@ -35,7 +34,7 @@ namespace Exercise2
                 {
                     txtName.Text = name;
                 }
-            } 
+            }
         }
 
 
@@ -43,6 +42,19 @@ namespace Exercise2
         {
 
             string newName = txtName.Text;
+            if (newName == string.Empty)
+            {
+                lblError.Text = "Please enter a value";
+            }
+            else
+            {
+                AddParty(newName);
+                txtName.Text = string.Empty;
+            }
+        }
+
+        protected void AddParty(string newName)
+        {
             SqlConnection conn = null;
             SqlCommand cm;
             try
@@ -76,8 +88,6 @@ namespace Exercise2
             {
                 conn.Close();
             }
-            txtName.Text = string.Empty;
-
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

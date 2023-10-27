@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddInvoice.aspx.cs" Inherits="Exercise2.AddInvoice" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
     <asp:Label ID="pageTitle" runat="server" Text="Add Invoice"></asp:Label>
@@ -66,7 +67,7 @@
 
         <div class="row">
             <div class="col">
-                <asp:Button ID="btnAddInvoice" CssClass="btn btn-save" runat="server" Text="Add to Invoice" OnClick="btnAddInvoice_Click" />
+                <asp:Button ID="btnAddInvoice" CssClass="btn btn-save" runat="server" Text="Add to Invoice" OnClick="btnAddInvoice_Click"  />
             </div>
         </div>
     </div>
@@ -111,6 +112,7 @@
 
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="#" />
+                <asp:BoundField DataField="ProductID" HeaderText="id" />
                 <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
                 <asp:BoundField DataField="ProductRate" HeaderText="Product Rate" />
                 <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
@@ -118,8 +120,8 @@
 
                 <asp:TemplateField HeaderText="Action">
                     <ItemTemplate>
-                        <asp:Button ID="editBtn"  runat="server" CssClass="btn grid-btn btn-edit" OnClick="editBtn_Click" Text="Edit" />
-                        <asp:Button ID="deleteBtn"  runat="server" CssClass="btn grid-btn btn-delete" OnClick="deleteBtn_Click" Text="Delete" />
+                        <asp:Button ID="editBtn" runat="server" CssClass="btn grid-btn btn-edit" OnClick="editBtn_Click" Text="Edit" />
+                        <asp:Button ID="deleteBtn" runat="server" CssClass="btn grid-btn btn-delete" OnClick="deleteBtn_Click" Text="Delete" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

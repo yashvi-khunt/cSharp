@@ -1,6 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddEditParty.aspx.cs" Inherits="Exercise2.AddEditParty" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddEditParty.aspx.cs" Inherits="Exercise2.AddEditParty" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function validateParty() {
+            let x = document.getElementById(<%= txtName.ClientID %>);
+            if (x == "") {
+                <%= lblError.ClientID %>.Text = "Please enter a value";
+                return false;
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageTitle" runat="server">
     <asp:Label ID="pageTitle" runat="server" Text=""></asp:Label>
@@ -23,7 +32,7 @@
 
         <div class="row">
             <div class="col">
-                <asp:Button ID="btnSave" CssClass="btn btn-save" runat="server" Text="Save" OnClick="btnSave_Click" />
+                <asp:Button ID="btnSave" CssClass="btn btn-save" runat="server" Text="Save" OnClientClick="return ValidateParty()" OnClick="btnSave_Click" />
             </div>
             <div class="col">
                 <asp:Button ID="btnCancel"  CssClass="btn btn-cancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
