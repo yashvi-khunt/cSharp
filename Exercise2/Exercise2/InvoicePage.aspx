@@ -30,7 +30,7 @@
         <Columns>
             <asp:BoundField DataField="InvoiceId" HeaderText="#" />
             <asp:BoundField DataField="PartyName" HeaderText="Party Name" />
-            <asp:BoundField DataField="InvoiceDate" HeaderText="Date" />
+            <asp:BoundField DataField="InvoiceDate" DataFormatString="{0:d}" HeaderText="Date" />
             <asp:BoundField DataField="GrandTotal" HeaderText="Grand Total" />
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>

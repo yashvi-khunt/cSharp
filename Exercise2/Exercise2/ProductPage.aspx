@@ -31,7 +31,7 @@
             <asp:BoundField DataField="ProductID" HeaderText="#" />
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" />
             <asp:BoundField DataField="ProductRate" HeaderText="Product Rate" />
-            <asp:BoundField DataField="ProductDate" HeaderText="Date" />
+            <asp:BoundField DataField="ProductDate"  DataFormatString="{0:d}" HeaderText="Date" />
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
                     <asp:Button ID="editBtn" OnClick="editBtn_Click" runat="server" CssClass="btn grid-btn btn-edit" Text="Edit" />
